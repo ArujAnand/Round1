@@ -1,9 +1,13 @@
 package BastiKiPathshala.Backend.service;
 
+import BastiKiPathshala.Backend.dto.UserDTO;
 import BastiKiPathshala.Backend.entities.UserEntity;
 import BastiKiPathshala.Backend.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -24,5 +28,12 @@ public class UserService {
             throw new RuntimeException("An erro occured while saving the user: " + newUser.getName());
         }
         return true;
+    }
+
+    public List<UserDTO> getAllUsers() {
+        List<UserEntity> users = userRepository.findAll();
+        return users.stream()
+                .map(UserEntity -> mapper.map(UserEntity, UserDTO.class))
+                .collect(Collectors.toList());
     }
 }
