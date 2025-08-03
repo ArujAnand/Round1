@@ -23,8 +23,5 @@ public class UserEntity {
     @NonNull
     private String name;
 
-    @NonNull
-    private String username;
-
     private List<String> roles;
 }
