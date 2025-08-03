@@ -1,7 +1,11 @@
 package BastiKiPathshala.Backend.controller;
 
+import BastiKiPathshala.Backend.dto.UserDTO;
 import BastiKiPathshala.Backend.entities.UserEntity;
 import BastiKiPathshala.Backend.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +23,10 @@ public class PublicController {
     }
 
     @PostMapping
-    public void createUser(@RequestBody UserEntity newUser) {
-        userService.saveNewUser(newUser);
+    public ResponseEntity<?> createUser(@RequestBody UserEntity newUser) {
+        if(userService.saveNewUser(newUser)) {
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
