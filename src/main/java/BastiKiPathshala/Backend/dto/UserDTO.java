@@ -1,5 +1,6 @@
 package BastiKiPathshala.Backend.dto;
 
+import BastiKiPathshala.Backend.enums.role;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -22,5 +23,5 @@ public class UserDTO {
     @NonNull
     private String username;
 
-    private List<String> roles;
+    private List<role> roles;
 }

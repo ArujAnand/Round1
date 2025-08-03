@@ -1,12 +1,9 @@
 package BastiKiPathshala.Backend.controller;
 
-import BastiKiPathshala.Backend.dto.UserDTO;
 import BastiKiPathshala.Backend.entities.UserEntity;
 import BastiKiPathshala.Backend.service.UserService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

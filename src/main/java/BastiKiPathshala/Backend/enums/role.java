@@ -1,4 +1,4 @@
-package BastiKiPathshala.Backend.entities;
+package BastiKiPathshala.Backend.enums;
 
 public enum role {
     VOLUNTEER, INTERN
