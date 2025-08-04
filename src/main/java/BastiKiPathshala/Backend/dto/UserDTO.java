@@ -20,5 +20,11 @@ public class UserDTO {
     @NonNull
     private String name;
 
+    @NonNull
+    private String username;
+
+    @NonNull
+    private String password;
+
     private List<role> roles;
 }

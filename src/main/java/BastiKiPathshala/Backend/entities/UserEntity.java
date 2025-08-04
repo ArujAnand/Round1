@@ -23,5 +23,11 @@ public class UserEntity {
     @NonNull
     private String name;
 
+    @NonNull
+    private String username;
+
+    @NonNull
+    private String password;
+
     private List<String> roles;
 }
