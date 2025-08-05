@@ -1,6 +1,7 @@
 package BastiKiPathshala.Backend.entities;
 
-
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -23,11 +24,13 @@ public class UserEntity {
     @NonNull
     private String name;
 
-    @NonNull
+    @NotNull(message = "Username cannot be null")
     private String username;
 
-    @NonNull
+    @NotNull(message = "Password cannot be null")
     private String password;
 
+    @NotNull(message = "List of roles cannot be null")
+    @Size(min = 1, message = "List of roles cannot be empty" )
     private List<String> roles;
 }

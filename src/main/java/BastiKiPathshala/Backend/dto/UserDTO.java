@@ -1,6 +1,9 @@
 package BastiKiPathshala.Backend.dto;
 
 import BastiKiPathshala.Backend.enums.role;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -20,11 +23,14 @@ public class UserDTO {
     @NonNull
     private String name;
 
-    @NonNull
+    @NotNull(message = "Username cannot be null")
     private String username;
 
-    @NonNull
+    @NotNull(message = "Password cannot be null")
     private String password;
 
+    @NotNull(message = "List of roles cannot be null")
+    @Size(min = 1, message = "Roles cannot be empty")
+    @JsonProperty(required = true)
     private List<role> roles;
 }
